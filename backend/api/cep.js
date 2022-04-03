@@ -22,10 +22,6 @@ module.exports = (app) => {
       request.open("GET", url, false, process.env.TOKEN_KEY);
 
       request.send();
-
-      console.log(req.query);
-      console.log("HTTP code: " + request.status);
-      console.log("Corpo: " + request.responseText);
     } catch (msg) {
       return res.status(400).send(msg);
     }
