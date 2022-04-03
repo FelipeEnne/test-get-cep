@@ -7,6 +7,10 @@ module.exports = (app) => {
     const request = new XMLHttpRequest();
 
     const queries = { ...req.query };
+    const numberOfQueries = Object.keys(queries).length;
+
+    if (numberOfQueries < 1) res.send("Insufficient number of parameters");
+
     try {
       let url = "https://homologacao.focusnfe.com.br/v2/ceps?";
       if (queries.codigo_ibge) url += `codigo_ibge=${queries.codigo_ibge}&`;
